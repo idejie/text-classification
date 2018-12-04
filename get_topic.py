@@ -103,6 +103,6 @@ if __name__ == '__main__':
     for k,v in news.items():
         print(k,v)
         break
-    with open(result_path, 'w', encoding="utf-8") as f:
+    with open(result_path, 'w', decoding="utf-8") as f:
         f.write(json_obj)
     print("completed!")
