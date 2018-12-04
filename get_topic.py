@@ -99,10 +99,10 @@ if __name__ == '__main__':
         print(k, topic, end=end)
         news[k]["topic"] = topic
     # save topic to json
-    json_obj = json.dumps(str(news))
-    for k,v in news.items():
-        print(k,v)
-        break
-    with open(result_path, 'w', decoding="utf-8") as f:
-        f.write(json_obj)
+    # json_obj = json.dumps()
+    # for k,v in news.items():
+    #     print(k,v)
+    #     break
+    with open(result_path, 'w', encoding="utf-8") as f:
+        f.write(str(news))
     print("completed!")
