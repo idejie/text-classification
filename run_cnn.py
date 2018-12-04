@@ -133,6 +133,8 @@ def train():
                 # 验证集正确率长期不提升，提前结束训练
                 print("No optimization for a long time, auto-stopping...")
                 flag = True
+                saver = tf.train.Saver()
+                saver.save(save_dir+'/'+save_path)
                 break  # 跳出循环
         if flag:  # 同上
             break
