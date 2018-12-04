@@ -1,6 +1,5 @@
 # coding: utf-8
 from __future__ import print_function
-import json
 import os
 import tensorflow as tf
 import tensorflow.contrib.keras as kr
@@ -98,11 +97,6 @@ if __name__ == '__main__':
         count += 1
         print(k, topic, end=end)
         news[k]["topic"] = topic
-    # save topic to json
-    # json_obj = json.dumps()
-    # for k,v in news.items():
-    #     print(k,v)
-    #     break
     with open(result_path, 'w', encoding="utf-8") as f:
         f.write(str(news))
     print("completed!")
