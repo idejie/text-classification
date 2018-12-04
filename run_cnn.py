@@ -21,7 +21,7 @@ test_dir = os.path.join(base_dir, 'cnews.test.txt')
 val_dir = os.path.join(base_dir, 'cnews.val.txt')
 vocab_dir = os.path.join(base_dir, 'cnews.vocab.txt')
 
-save_dir = 'checkpoints/textcnn'
+save_dir = 'classification/checkpoints/textcnn'
 save_path = os.path.join(save_dir, 'best_validation')  # 最佳验证结果保存路径
 
 
@@ -134,7 +134,7 @@ def train():
                 print("No optimization for a long time, auto-stopping...")
                 flag = True
                 saver = tf.train.Saver()
-                saver.save(save_dir+'/'+save_path)
+                saver.save(session,save_path)
                 break  # 跳出循环
         if flag:  # 同上
             break
