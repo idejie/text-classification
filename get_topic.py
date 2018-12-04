@@ -21,6 +21,8 @@ save_path = os.path.join(save_dir, 'best_validation')  # 最佳验证结果保�
 
 data_path = "classification/data/rec_news/user_click_data.txt"
 
+result_path = "classification/data/rec_news/news_topic.json"
+
 
 def get_news_users_set():
     news = {}
@@ -86,9 +88,18 @@ class CnnModel:
 if __name__ == '__main__':
     cnn_model = CnnModel()
     _, news = get_news_users_set()
+    count = 0
     for k, v in news.items():
         topic = cnn_model.predict(v["content"])
-        print(k, topic)
+        if count % 100 == 0:
+            end = "\n"
+        else:
+            end = "\t"
+        count+=1
+        print(k, topic, end=end)
         news[k]["topic"] = topic
     # save topic to json
     json_obj = json.dumps(news)
+    with open(result_path, 'w') as f:
+        f.write(json_obj)
+    print("completed!")
